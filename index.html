@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OIT timesheet logger</title>
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+  </head>
+  <body>
+
+    <div id="dashboard" class="container hide">
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="panel panel-primary">
+                  <div class="panel-heading"><span class="user-name"></span> | Logging for <span class="user-date"></span></div>
+                  <div class="panel-body">
+                      <form role="form" method="post" action="" accept-charset="UTF-8">
+                      
+                        <label for="logtype" style="margin-top: 10px;">Log Type</label>
+                        <select name="logtype" class="form-control" id="logtype">
+                        </select>
+
+                          <label for="project" style="margin-top: 10px;">Project</label>
+                          <select name="project" class="form-control" id="project">
+                          </select>
+
+                          <label for="worktype" style="margin-top: 10px;">Work Type</label>
+                          <select name="worktype" class="form-control" id="worktype">
+                          </select>
+                          
+                          <label for="time" style="margin-top: 10px;">Time</label>
+                          <select name="time" class="form-control" id="time">
+                          </select>
+
+                          <label for="desc" style="margin-top: 10px;">Description</label>
+                          <textarea type="text" id="desc" class="form-control" placeholder="Log Description">Project Work</textarea>
+                          <button style="margin-top: 10px;" id="submitlog" class="btn btn-lg btn-primary btn-block" type="button">
+                                Submit
+                          </button>
+
+                          <!-- <div class="row">
+                            <div class="col-xs-6">
+                              <span class="time fade-time pull-left">00:00</span>
+                              <small class="time fade-time small-time pull-left">00</small>
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="lname"></label>
+                                <div class="switch">
+                                <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                                <label for="cmn-toggle-4"></label>
+                                </div>
+                            </div>
+                            </div> -->
+                          </div>
+                          
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="row last-entry hide">
+            <div class="col-xm-12 text-center">
+                Last Entry
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="tr">
+                            <div class="td">Project</div>
+                            <div class="td">Start Time</div>
+                            <div class="td">End Time</div>
+                            <div class="td">Description</div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tr">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-xm-12 text-center">
+                <a href="javascript:;" id="logout">Logout</a>
+              </div>
+              </div>
+      </div>
+     
+  </div>
+  <div id="loading" class="container">
+      <img src="./public/images/loading.gif" />
+  </div>
+  <div id="login" class="container hide">
+      <div class="row">
+          <div class="col-sm-6 col-md-4 col-md-offset-4">
+              <h1 class="text-center login-title">Sign in</h1>
+              <div class="account-wall">
+                  <img class="profile-img" src="./public/images/icon.png"
+                      alt="">
+                  <form class="form-signin">
+                  <input type="text" id="email" class="form-control" placeholder="Username" required autofocus>
+                  <input type="password" id="password" class="form-control" placeholder="Password" required>
+                  <button id="submit" class="btn btn-lg btn-primary btn-block" type="button">
+                      Sign in
+                  </button>
+                
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="connection-status"><i class="glyphicon glyphicon-flash online"></i></div>
+  <div id="sending-status" class="hide"><i class="glyphicon glyphicon-cog gly-spin online"></i></div>
+  <input type="hidden" id="data-project">
+  <input type="hidden" id="data-desc">
+  <!-- Insert this line above script imports  -->
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+
+    <script src="./public/js/jquery.min.js"></script>
+    <script src="./public/js/notify.min.js"></script>
+    
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+    <script>
+        const {ipcRenderer} = require('electron')
+      // You can also require other files to run in this process
+      require('./renderer.js');
+
+      $.notify.defaults({ globalPosition:"bottom left" });
+
+        const alertOnlineStatus = () => {
+            
+                ipcRenderer.send('tracker-state', navigator.onLine ? "Tracker is online" : "Tracker is running in offline mode")
+            
+        }
+
+        window.addEventListener('online',  alertOnlineStatus)
+        window.addEventListener('offline',  alertOnlineStatus)
+
+        alertOnlineStatus()
+    </script>
+  </body>
+</html>

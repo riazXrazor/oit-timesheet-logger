@@ -1,0 +1,33 @@
+{
+  "name": "oit-timesheet-logger",
+  "version": "1.0.0",
+  "description": "In house Optimize IT Systems Pvt. Ltd. timesheet logger",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "deb86": "electron-packager . OITTimesheetLogger --overwrite --asar=true --platform=linux --arch=ia32 --icon=public/images/1024x1024.png --prune=true --out=releases",
+    "deb": "electron-packager . oit-timesheet-logger --overwrite --asar=true --platform=linux --arch=x64 --icon=public/images/1024x1024.png --prune=true --out=releases",
+    "win": "electron-packager . OITTimesheetLogger --overwrite --asar=true --platform=win32 --arch=ia32 --icon=public/images/icon.ico --prune=true --out=releases --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Optimize IT Systems Pvt. Ltd. timesheet logger\"",
+    "mac": "electron-packager . OITTimesheetLogger --overwrite --platform=darwin --arch=x64 --icon=public/images/icon.icns --prune=true --out=releases",
+    "mac-installer": "electron-installer-dmg ./releases/OITTimesheetLogger-darwin-x64/OITTimesheetLogger.app OITTimesheetLogger",
+    "win-installer": "node wininstaller.js",
+    "deb-installer": "electron-installer-debian --src releases/oit-timesheet-logger-linux-x64/ --arch amd64 --config deb.json",
+    "deb-installer32": "electron-installer-debian --src releases/OITTimesheetLogger-linux-ia32/ --arch ia32 --config deb.json"
+  },
+  "author": "Riaz Laskar",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.7.16",
+    "electron-debug": "^1.5.0",
+    "electron-installer-dmg": "^0.2.1",
+    "electron-packager": "^14.0.6",
+    "electron-reload": "^1.5.0",
+    "electron-winstaller": "^2.6.4"
+  },
+  "dependencies": {
+    "easytimer.js": "^2.0.3",
+    "electron-notify": "^0.1.0",
+    "moment": "^2.20.1",
+    "superagent": "^5.1.0"
+  }
+}

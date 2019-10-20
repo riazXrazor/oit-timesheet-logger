@@ -1,0 +1,778 @@
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+input, button, textarea, :focus {
+    outline: none; 
+}
+
+a:not([draggable=true]), img:not([draggable=true]) {
+    -webkit-user-drag: none;
+}
+
+.gly-spin {
+-webkit-animation: spin 2s infinite linear;
+-moz-animation: spin 2s infinite linear;
+-o-animation: spin 2s infinite linear;
+animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+0% {
+-moz-transform: rotate(0deg);
+}
+100% {
+-moz-transform: rotate(359deg);
+}
+}
+@-webkit-keyframes spin {
+0% {
+-webkit-transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(359deg);
+}
+}
+@-o-keyframes spin {
+0% {
+-o-transform: rotate(0deg);
+}
+100% {
+-o-transform: rotate(359deg);
+}
+}
+@keyframes spin {
+0% {
+-webkit-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(359deg);
+transform: rotate(359deg);
+}
+}
+.gly-rotate-90 {
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+-webkit-transform: rotate(90deg);
+-moz-transform: rotate(90deg);
+-ms-transform: rotate(90deg);
+-o-transform: rotate(90deg);
+transform: rotate(90deg);
+}
+.gly-rotate-180 {
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+-webkit-transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+.gly-rotate-270 {
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+-webkit-transform: rotate(270deg);
+-moz-transform: rotate(270deg);
+-ms-transform: rotate(270deg);
+-o-transform: rotate(270deg);
+transform: rotate(270deg);
+}
+.gly-flip-horizontal {
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+-webkit-transform: scale(-1, 1);
+-moz-transform: scale(-1, 1);
+-ms-transform: scale(-1, 1);
+-o-transform: scale(-1, 1);
+transform: scale(-1, 1);
+}
+.gly-flip-vertical {
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+-webkit-transform: scale(1, -1);
+-moz-transform: scale(1, -1);
+-ms-transform: scale(1, -1);
+-o-transform: scale(1, -1);
+transform: scale(1, -1);
+}
+
+  .container{
+    padding:0;
+    width:100%;
+    overflow: hidden;
+  }
+
+  .panel-primary,.panel-heading{
+    border-radius: 0;
+    border: 0;
+  }
+
+  .onoffswitch {
+position: relative; width: 90px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+display: none;
+}
+
+.onoffswitch-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 2px solid #999999; border-radius: 20px;
+}
+
+.onoffswitch-inner {
+display: block; width: 200%; margin-left: -100%;
+-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+content: "YES";
+padding-left: 10px;
+background-color: #699d42; color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+content: "NO";
+padding-right: 10px;
+background-color: #EEEEEE; color: #999999;
+text-align: right;
+}
+
+.onoffswitch-switch {
+display: block; width: 18px; margin: 6px;
+background: #FFFFFF;
+border: 2px solid #999999; border-radius: 20px;
+position: absolute; top: 0; bottom: 0; right: 56px;
+-moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+-o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+right: 0px; 
+}
+
+
+.onoffswitch1 {
+position: relative; width: 90px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch1-checkbox {
+display: none;
+}
+
+.onoffswitch1-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 2px solid #999999; border-radius: 30px;
+}
+
+.onoffswitch1-inner {
+display: block; width: 200%; margin-left: -100%;
+-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch1-inner:before, .onoffswitch1-inner:after {
+display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+border-radius: 30px;
+box-shadow: 0px 15px 0px rgba(0,0,0,0.08) inset;
+}
+
+.onoffswitch1-inner:before {
+content: "YES";
+padding-left: 10px;
+background-color: #699d42; color: #FFFFFF;
+border-radius: 30px 0 0 30px;
+}
+
+.onoffswitch1-inner:after {
+content: "NO";
+padding-right: 10px;
+background-color: #EEEEEE; color: #999999;
+text-align: right;
+border-radius: 0 30px 30px 0;
+}
+
+.onoffswitch1-switch {
+display: block; width: 30px; margin: 0px;
+background: #FFFFFF;
+border: 2px solid #999999; border-radius: 30px;
+position: absolute; top: 0; bottom: 0; right: 56px;
+-moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+-o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+background-image: -moz-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+background-image: -webkit-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+background-image: -o-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+background-image: linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%);
+box-shadow: 0 1px 1px white inset;
+}
+
+.onoffswitch1-checkbox:checked + .onoffswitch1-label .onoffswitch1-inner {
+margin-left: 0;
+}
+
+.onoffswitch1-checkbox:checked + .onoffswitch1-label .onoffswitch1-switch {
+right: 0px; 
+}
+
+.onoffswitch2 {
+position: relative; width: 90px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch2-checkbox {
+display: none;
+}
+
+.onoffswitch2-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 2px solid #999999; border-radius: 5px;
+}
+
+.onoffswitch2-inner {
+display: block; width: 200%; margin-left: -100%;
+-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch2-inner:before, .onoffswitch2-inner:after {
+display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.onoffswitch2-inner:before {
+content: "YES";
+padding-left: 10px;
+background-color: #699d42; color: #FFFFFF;
+}
+
+.onoffswitch2-inner:after {
+content: "NO";
+padding-right: 10px;
+background-color: #EEEEEE; color: #999999;
+text-align: right;
+}
+
+.onoffswitch2-switch {
+display: block; width: 18px; margin: 0px;
+background: #FFFFFF;
+border: 2px solid #999999; border-radius: 5px;
+position: absolute; top: 0; bottom: 0; right: 68px;
+-moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+-o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+background-image: -moz-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+background-image: -webkit-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+background-image: -o-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+background-image: linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-inner {
+margin-left: 0;
+}
+
+.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-switch {
+right: 0px; 
+}
+
+.onoffswitch3
+{
+position: relative; width: 90px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch3-checkbox {
+display: none;
+}
+
+.onoffswitch3-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 0px solid #999999; border-radius: 0px;
+}
+
+.onoffswitch3-inner {
+display: block; width: 200%; margin-left: -100%;
+-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch3-inner > span {
+display: block; float: left; position: relative; width: 50%; height: 30px; padding: 0; line-height: 30px;
+font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.onoffswitch3-inner .onoffswitch3-active {
+padding-left: 10px;
+background-color: #EEEEEE; color: #FFFFFF;
+}
+
+.onoffswitch3-inner .onoffswitch3-inactive {
+padding-right: 10px;
+background-color: #EEEEEE; color: #FFFFFF;
+text-align: right;
+}
+
+.onoffswitch3-switch {
+display: block; width: 18px; margin: 0px; text-align: center; 
+border: 0px solid #999999;border-radius: 0px; 
+position: absolute; top: 0; bottom: 0;
+}
+.onoffswitch3-active .onoffswitch3-switch {
+background: #1b2a44 ; left: 0;
+}
+.onoffswitch3-inactive .onoffswitch3-switch {
+background: #A1A1A1; right: 0;
+}
+
+.onoffswitch3-active .onoffswitch3-switch:before {
+content: " "; position: absolute; top: 0; left: 18px; 
+border-style: solid; border-color: #1b2a44  transparent transparent #1b2a44 ; border-width: 15px 9px;
+}
+
+
+.onoffswitch3-inactive .onoffswitch3-switch:before {
+content: " "; position: absolute; top: 0; right: 18px; 
+border-style: solid; border-color: transparent #A1A1A1 #A1A1A1 transparent; border-width: 15px 9px;
+}
+
+
+.onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-inner {
+margin-left: 0;
+}
+
+.onoffswitch4 {
+position: relative; width: 90px;
+-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch4-checkbox {
+display: none;
+}
+
+.onoffswitch4-label {
+display: block; overflow: hidden; cursor: pointer;
+border: 2px solid #1b2a44 ; border-radius: 0px;
+}
+
+.onoffswitch4-inner {
+display: block; width: 200%; margin-left: -100%;
+-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch4-inner:before, .onoffswitch4-inner:after {
+display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 26px;
+font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+border: 2px solid transparent;
+background-clip: padding-box;
+}
+
+.onoffswitch4-inner:before {
+content: "Yes";
+padding-left: 10px;
+background-color: #FFFFFF; color: #1b2a44 ;
+}
+
+.onoffswitch4-inner:after {
+content: "No";
+padding-right: 10px;
+background-color: #FFFFFF; color: #666666;
+text-align: right;
+}
+
+.onoffswitch4-switch {
+display: block; width: 25px; margin: 0px;
+background: #1b2a44 ;
+position: absolute; top: 0; bottom: 0; right: 65px;
+-moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+-o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-inner {
+margin-left: 0;
+}
+
+.onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-switch {
+right: 0px; 
+}
+
+
+
+.cmn-toggle 
+{
+position: absolute;
+margin-left: -9999px;
+visibility: hidden;
+}
+
+.cmn-toggle + label 
+{
+display: block;
+position: relative;
+cursor: pointer;
+outline: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input.cmn-toggle-round-flat + label 
+{
+padding: 2px;
+width: 75px;
+height: 30px;
+background-color: #dddddd;
+-webkit-border-radius: 60px;
+-moz-border-radius: 60px;
+-ms-border-radius: 60px;
+-o-border-radius: 60px;
+border-radius: 60px;
+-webkit-transition: background 0.4s;
+-moz-transition: background 0.4s;
+-o-transition: background 0.4s;
+transition: background 0.4s;
+}
+
+input.cmn-toggle-round-flat + label:before, input.cmn-toggle-round-flat + label:after 
+{
+display: block;
+position: absolute;
+content: "";
+}
+
+input.cmn-toggle-round-flat + label:before 
+{
+top: 2px;
+left: 2px;
+bottom: 2px;
+right: 2px;
+background-color: #fff;
+-webkit-border-radius: 60px;
+-moz-border-radius: 60px;
+-ms-border-radius: 60px;
+-o-border-radius: 60px;
+border-radius: 60px;
+-webkit-transition: background 0.4s;
+-moz-transition: background 0.4s;
+-o-transition: background 0.4s;
+transition: background 0.4s;
+cursor: pointer;
+}
+
+input.cmn-toggle-round-flat + label:after 
+{
+top: 4px;
+left: 4px;
+bottom: 4px;
+width: 22px;
+background-color: #dddddd;
+-webkit-border-radius: 52px;
+-moz-border-radius: 52px;
+-ms-border-radius: 52px;
+-o-border-radius: 52px;
+border-radius: 52px;
+-webkit-transition: margin 0.4s, background 0.4s;
+-moz-transition: margin 0.4s, background 0.4s;
+-o-transition: margin 0.4s, background 0.4s;
+transition: margin 0.4s, background 0.4s;
+cursor: pointer;
+}
+
+input.cmn-toggle-round-flat:checked + label 
+{
+background-color: #1b2a44 ;
+}
+
+input.cmn-toggle-round-flat:checked + label:after 
+{
+margin-left: 45px;
+background-color: #1b2a44 ;
+}
+
+div.switch5 { clear: both; margin: 0px 0px; }
+div.switch5 > input.switch:empty { margin-left: -999px; }
+div.switch5 > input.switch:empty ~ label { position: relative; float: left; line-height: 1.6em; text-indent: 4em; margin: 0.2em 0px; cursor: pointer; -moz-user-select: none; }
+div.switch5 > input.switch:empty ~ label:before, input.switch:empty ~ label:after { position: absolute; display: block; top: 0px; bottom: 0px; left: 0px; content: "off"; width: 3.6em; height: 1.5em; text-indent: 2.4em; color: rgb(153, 0, 0); background-color: rgb(204, 51, 51); border-radius: 0.3em; box-shadow: 0px 0.2em 0px rgba(0, 0, 0, 0.3) inset; }
+div.switch5 > input.switch:empty ~ label:after { content: " "; width: 1.4em; height: 1.5em; top: 0.1em; bottom: 0.1em; text-align: center; text-indent: 0px; margin-left: 0.1em; color: rgb(255, 136, 136); background-color: rgb(255, 255, 255); border-radius: 0.15em; box-shadow: 0px -0.2em 0px rgba(0, 0, 0, 0.2) inset; transition: all 100ms ease-in 0s; }
+div.switch5 > input.switch:checked ~ label:before { content: "on"; text-indent: 0.5em; color: rgb(102, 255, 102); background-color: rgb(51, 153, 51); }
+div.switch5 > input.switch:checked ~ label:after { margin-left: 2.1em; color: rgb(102, 204, 102); }
+div.switch5 > input.switch:focus ~ label { color: rgb(0, 0, 0); }
+div.switch5 > input.switch:focus ~ label:before { box-shadow: 0px 0px 0px 3px rgb(153, 153, 153); }
+
+
+
+
+
+
+
+.switch6 {  max-width: 17em;  margin: 0 auto; }
+.switch6-light > span, .switch-toggle > span {  color: #000000; }
+.switch6-light span span, .switch6-light label, .switch-toggle span span, .switch-toggle label {  color: #2b2b2b; }
+
+.switch-toggle a, 
+.switch6-light span span { display: none; }
+
+.switch6-light { display: block; height: 30px; position: relative; overflow: visible; padding: 0px; margin-left:0px; }
+.switch6-light * { box-sizing: border-box; }
+.switch6-light a { display: block; transition: all 0.3s ease-out 0s; }
+
+.switch6-light label, 
+.switch6-light > span { line-height: 30px; vertical-align: middle;}
+
+.switch6-light label {font-weight: 700; margin-bottom: px; max-width: 100%;}
+
+.switch6-light input:focus ~ a, .switch6-light input:focus + label { outline: 1px dotted rgb(136, 136, 136); }
+.switch6-light input { position: absolute; opacity: 0; z-index: 5; }
+.switch6-light input:checked ~ a { right: 0%; }
+.switch6-light > span { position: absolute; left: -100px; width: 100%; margin: 0px; padding-right: 100px; text-align: left; }
+.switch6-light > span span { position: absolute; top: 0px; left: 0px; z-index: 5; display: block; width: 50%; margin-left: 100px; text-align: center; }
+.switch6-light > span span:last-child { left: 50%; }
+.switch6-light a { position: absolute; right: 50%; top: 0px; z-index: 4; display: block; width: 50%; height: 100%; padding: 0px; }
+
+.switch{
+margin-left: 20px;
+margin-top: 3px;
+}
+
+.time{
+font-size: 39px;
+font-weight: bolder;
+text-align: center;
+display: block;
+}
+
+.small-time{
+    font-size: 15px;
+    margin-top: 25px;
+}
+
+.form-signin
+{
+max-width: 330px;
+padding: 15px;
+margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+font-weight: normal;
+}
+.form-signin .form-control
+{
+position: relative;
+font-size: 16px;
+height: auto;
+padding: 10px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+z-index: 2;
+}
+.form-signin input[type="text"]
+{
+margin-bottom: -1px;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+margin-bottom: 10px;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+.account-wall
+{
+margin-top: 20px;
+padding: 40px 0px 20px 0px;
+background-color: #f7f7f7;
+-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+color: #555;
+font-size: 18px;
+font-weight: 400;
+display: block;
+}
+.profile-img
+{
+/* width: 46px;
+height: 46px; */
+margin: 0 auto 10px;
+display: block;
+/* -moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%; */
+}
+.need-help
+{
+margin-top: 10px;
+}
+.new-account
+{
+display: block;
+margin-top: 10px;
+}
+
+.fade-time{
+color:#A1A1A1;
+}
+
+#connection-status{
+width: 30px;
+height: 30px;
+position: absolute;
+bottom: 0;
+right: 0;
+font-size: 23px;
+}
+
+#sending-status{
+width: 30px;
+height: 30px;
+position: absolute;
+bottom: 0;
+left: 0;
+font-size: 23px;
+}
+
+.online{
+color:#5cb85c;
+}
+
+.offline{
+color:#c0c0c0;;
+}
+
+/*
+ * See it in action here: http://jsfiddle.net/seydoggy/6s92p51a/
+ */
+ .panel-table {
+    display:table;
+    margin: 0 auto;
+    font-size: 12px;
+    width: 90%;
+}
+.panel-table > .panel-heading {
+    display: table-header-group;
+    background: transparent;
+}
+.panel-table > .panel-body {
+    display: table-row-group;
+}
+.panel-table > .panel-body:before,
+.panel-table > .panel-body:after {
+    content:none;
+}
+.panel-table > .panel-footer {
+    display: table-footer-group;
+    background: transparent;
+}
+.panel-table > div > .tr {
+    display: table-row;
+}
+.panel-table > div:last-child > .tr:last-child > .td {
+    border-bottom: none;
+}
+.panel-table .td {
+    display: table-cell;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-left: none;
+}
+.panel-table .td:last-child {
+    border-right: none;
+}
+.panel-table > .panel-heading > .tr > .td,
+.panel-table > .panel-footer > .tr > .td {
+    background-color: #f5f5f5;
+}
+.panel-table > .panel-heading > .tr > .td:first-child {
+    border-radius: 4px 0 0 0;
+}
+.panel-table > .panel-heading > .tr > .td:last-child {
+    border-radius: 0 4px 0 0;
+}
+.panel-table > .panel-footer > .tr > .td:first-child {
+    border-radius: 0 0 0 4px;
+}
+.panel-table > .panel-footer > .tr > .td:last-child {
+    border-radius: 0 0 4px 0;
+}
+.last-entry{
+    margin-top: -40px;
+}
+.last-entry::before{
+    display: inline-block;
+}
+#logout{
+    display: block;
+    margin-top: 10px;
+}
+
+#logout:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#loading{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto auto;
+    background: url(./../images/linux/64x64.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+#loading img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 90px;
+    height: 90px;
+}
+
+button.btn-primary{
+    background-color: #1b2a44;
+    border-color: #1b2a44;
+}
+
+button.btn-primary:hover{
+    background-color: #1b2a44;
+    opacity: 0.9;
+}
+
+.panel-primary>.panel-heading{
+    background-color: #699d42;
+}

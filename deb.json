@@ -1,0 +1,16 @@
+{
+  "name": "cx-work-logger",
+  "productName": "Optimize IT Systems Pvt. Ltd. timesheet logger",
+  "genericName": "Work Logger",
+  "section": "utils",
+  "maintainer": "riazcool77@gmail.com",
+  "homepage": "http://riazxrazor.in",
+  "icon": "public/images/1024x1024.png",
+  "dest": "releases/",
+  "categories": [
+    "Utility"
+  ],
+  "lintianOverrides": [
+    "changelog-file-missing-in-native-package"
+  ]
+}
