@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>OIT timesheet logger</title>
     <link rel="stylesheet" href="./public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/js-datepicker/dist/datepicker.min.css">
     <link rel="stylesheet" href="./public/css/style.css">
   </head>
   <body>
@@ -12,10 +13,13 @@
       <div class="row">
           <div class="col-md-6 col-md-offset-3">
               <div class="panel panel-primary">
-                  <div class="panel-heading"><span class="user-name"></span> | Logging for <span class="user-date"></span></div>
+                  <div class="panel-heading"><span class="user-name"></span></div>
                   <div class="panel-body">
                       <form role="form" method="post" action="" accept-charset="UTF-8">
                       
+                        <label for="date" style="margin-top: 10px;">Date</label>
+                        <input id="date" class="form-control" type="text" name="date" />
+                        
                         <label for="logtype" style="margin-top: 10px;">Log Type</label>
                         <select name="logtype" class="form-control" id="logtype">
                         </select>
@@ -57,24 +61,10 @@
                   </div>
               </div>
           </div>
-          <div class="row last-entry hide">
+          <div class="row last-entry">
             <div class="col-xm-12 text-center">
-                Last Entry
-                <div class="panel panel-default panel-table">
-                    <div class="panel-heading">
-                        <div class="tr">
-                            <div class="td">Project</div>
-                            <div class="td">Start Time</div>
-                            <div class="td">End Time</div>
-                            <div class="td">Description</div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="tr">
-                            
-                        </div>
-                    </div>
-                </div>
+                Last Logged <span id="last-entry" class="label label-info">2019-09-10</span>
+                
             </div>
           </div>
           <div class="row">

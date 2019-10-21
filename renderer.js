@@ -1,11 +1,21 @@
-const {ipcRenderer} = require('electron')
 const moment = require('moment');
 const request = require('superagent');
+const datepicker = require('js-datepicker');
+
 
 
 let agent = request.agent();
 let payload = {},form,html,projectsList = '',logtypeList = '',worktypeList = '',timeList = ''
+const picker = datepicker(document.getElementById("date"), {
+    formatter: (input, date, instance) => {
+      input.value = moment(date).format('YYYY-MM-DD')
+    },
+    dateSelected: moment().toDate(),
+    maxDate: moment().toDate(),
+    minDate: moment().subtract(5, "days").toDate(),
+  })
 
+  $("#last-entry").text(window.localStorage.getItem('lastLoggedDate') || '---')
 setInterval(function(){
     if(online())
     {
@@ -34,13 +44,11 @@ if(window.localStorage.getItem('username') && window.localStorage.getItem('passw
     $("#login").removeClass('hide');
 }
 
-$(".user-date").text(moment().format('ll'));
-
     $("#submit").on('click',login);
 
     $("#submitlog").on('click',function(){
 
-        if(!$("#project").val()||
+        if(!$("#date").val() || !$("#project").val()||
         ($("#time").val() == 0)||
         !$("#logtype").val()||
         !$("#worktype").val()||
@@ -80,7 +88,7 @@ $(".user-date").text(moment().format('ll'));
                     project_0: "234665"
                     work_type_0: "23"*/
                 
-                payload['log_date[date]'] = moment().format('YYYY-MM-DD')
+                payload['log_date[date]'] = $("#date").val()
                 // payload['log_date[date]'] = '2019-10-19'
                 payload['project_0'] = $("#project").val();
                 payload['log_hours_0'] = $("#time").val();
@@ -88,7 +96,8 @@ $(".user-date").text(moment().format('ll'));
                 payload['work_type_0'] = $("#worktype").val();
                 payload['leave_type_0'] = ''
                 payload['description_0'] = $("#desc").val();
-
+                console.log(payload);
+                // return;
                 return agent.post(url)
                             .send(payload)
 
@@ -98,6 +107,7 @@ $(".user-date").text(moment().format('ll'));
          })
          .then(res => {
             thisBtn.text(thisVal).attr('disabled',false);
+            window.localStorage.setItem('lastLoggedDate',$("#date").val())
             $.notify("Timesheet Logged Successful !!", "success")
          }).catch(e => {
             thisBtn.text(thisVal).attr('disabled',false);

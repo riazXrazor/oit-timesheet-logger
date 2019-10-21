@@ -724,7 +724,7 @@ color:#c0c0c0;;
     border-radius: 0 0 4px 0;
 }
 .last-entry{
-    margin-top: -40px;
+    margin-top: -20px;
 }
 .last-entry::before{
     display: inline-block;

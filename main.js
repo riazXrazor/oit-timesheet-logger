@@ -52,8 +52,8 @@ function createWindow () {
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 300, 
-    height: 600,
+    width: 350, 
+    height: 700,
     resizable: false,
     icon: path.join(__dirname, 'public/images/1024x1024.png')
   })

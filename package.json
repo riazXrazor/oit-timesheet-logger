@@ -3,7 +3,25 @@
   "version": "1.0.0",
   "description": "In house Optimize IT Systems Pvt. Ltd. timesheet logger",
   "main": "main.js",
+  "build": {
+    "appId": "com.example.oit-timesheet-logge",
+    "productName": "OIT Timesheet Logger",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/images/logo.png"
+    },
+    "nsis": {
+      "installerIcon": "public/images/256x256.ico",
+      "uninstallerIcon": "public/images/256x256.ico",
+      "license": "LICENSE",
+      "runAfterFinish": true
+    }
+  },
   "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "start": "electron .",
     "deb86": "electron-packager . OITTimesheetLogger --overwrite --asar=true --platform=linux --arch=ia32 --icon=public/images/1024x1024.png --prune=true --out=releases",
     "deb": "electron-packager . oit-timesheet-logger --overwrite --asar=true --platform=linux --arch=x64 --icon=public/images/1024x1024.png --prune=true --out=releases",
@@ -18,15 +36,17 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.7.16",
+    "electron-builder": "^21.2.0",
     "electron-debug": "^1.5.0",
     "electron-installer-dmg": "^0.2.1",
     "electron-packager": "^14.0.6",
-    "electron-reload": "^1.5.0",
+    "electron-reload": "^1.4.0",
     "electron-winstaller": "^2.6.4"
   },
   "dependencies": {
     "easytimer.js": "^2.0.3",
     "electron-notify": "^0.1.0",
+    "js-datepicker": "^5.0.3",
     "moment": "^2.20.1",
     "superagent": "^5.1.0"
   }

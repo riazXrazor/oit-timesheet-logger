@@ -21,7 +21,7 @@ function getInstallerConfig () {
     exe: 'OITTimesheetLogger.exe',
     setupExe: 'OITTimesheetLoggerAppInstaller.exe',
     setupIcon: path.join(rootPath, 'public', 'images', 'icon.ico'),
-    iconUrl: "http://riazxrazor.in/icon.ico",
+    iconUrl: "http://riazxrazor.in/logo.ico",
     loadingGif : path.join(rootPath, 'public', 'images', 'installer.gif')
   })
 }
