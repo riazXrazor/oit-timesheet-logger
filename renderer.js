@@ -3,6 +3,7 @@ const request = require("superagent");
 const datepicker = require("js-datepicker");
 const loginurl =
   "https://lvs9yg3zyh.execute-api.us-east-1.amazonaws.com/dev/login";
+const logurl = "https://lvs9yg3zyh.execute-api.us-east-1.amazonaws.com/dev/log";
 let agent = request.agent();
 let payload = {},
   form,
@@ -66,62 +67,33 @@ $("#submitlog").on("click", function() {
     return;
   }
 
-  const url = "https://timesheet.inadev.net/timesheet";
   let thisBtn = $("#submitlog");
   let thisVal = thisBtn.text();
   thisBtn.text("Submitting...").attr("disabled", true);
   agent
-    .get(url)
-    .then(res => {
-      // console.log(res.text)
-      html = $(res.text);
-
-      if (html.find("#add_log_entries_form").length) {
-        payload = {};
-        form = html.find("#add_log_entries_form");
-        form.find("input").map(function() {
-          payload[$(this).attr("name")] = $(this).val();
-        });
-        form.find("select").map(function() {
-          payload[$(this).attr("name")] = $(this).val();
-        });
-
-        // console.log(payload);
-
-        /*form_build_id: "form-TOrsNVLPOq1YCtNvL1RNiHQshjUg0Bzwff1rn3bE67o"
-                    form_id: "hrms_log_effort_add_log_form"
-                    form_token: "PvvlX604SyE1bfi4cUcr0Viopi8U50dtCuTj7ui4XwI"
-                    leave_type_0: ""
-                    log_date[date]: "2019-10-17"
-                    log_hours_0: "28800"
-                    log_type_0: "16"
-                    op: "Submit"
-                    project_0: "234665"
-                    work_type_0: "23"*/
-
-        payload["log_date[date]"] = $("#date").val();
-        // payload['log_date[date]'] = '2019-10-19'
-        payload["project_0"] = $("#project").val();
-        payload["log_hours_0"] = $("#time").val();
-        payload["log_type_0"] = $("#logtype").val();
-        payload["work_type_0"] = $("#worktype").val();
-        payload["leave_type_0"] = "";
-        payload["description_0"] = $("#desc").val();
-        // console.log(payload);
-        // return;
-        return agent.post(url).send(payload);
-      } else {
-        throw Error("Unable to Log, please login again !!");
-      }
+    .post(logurl)
+    .send({
+      username: window.localStorage.getItem("username"),
+      password: window.localStorage.getItem("password"),
+      date: $("#date").val(),
+      project: $("#project").val(),
+      time: $("#time").val(),
+      logtype: $("#logtype").val(),
+      worktype: $("#worktype").val(),
+      desc: $("#desc")
+        .val()
+        .trim()
     })
     .then(res => {
+      console.log(res.body);
       thisBtn.text(thisVal).attr("disabled", false);
       window.localStorage.setItem("lastLoggedDate", $("#date").val());
       $.notify("Timesheet Logged Successful !!", "success");
     })
     .catch(e => {
+      console.log(e);
       thisBtn.text(thisVal).attr("disabled", false);
-      $.notify(e.message, "error");
+      $.notify("Unable to Log, please login again !!", "error");
     });
 });
 
